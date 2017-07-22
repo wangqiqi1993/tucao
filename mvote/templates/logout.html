@@ -1,0 +1,10 @@
+<!--logout.html-->
+{% extends "base.html" %}
+{% block title %}吐槽大会{% endblock %}
+{% block content %}
+<div class = 'container'>
+    {% if message %}
+        <div class = 'alert alert-warning'>{{message}}</div>
+    {% endif %}
+</div>
+{% endblock %}

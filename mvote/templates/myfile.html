@@ -1,0 +1,56 @@
+<!--myfile.html-->
+{% extends "base.html" %}
+{% block title %}欢迎来吐cao~{% endblock %}
+{% block content %}
+
+{% if message %}
+<div class = 'alert alert-warning'>{{message}}</div>
+{% endif %}
+
+<script>
+function go_delete(id){
+
+			if (id != ''){
+
+							var usr = '/'+ id
+							window.location = usr
+                                               }
+                      }
+</script>
+<div class = 'container'>
+	<div class = 'row'>
+		<div class = 'col-md-12'>
+			<div class = 'panel panel-default'>
+				<div class = 'panel-heading' align = center>
+				<h3>我的吐槽帖</h3>
+				<p>{{username}}</p>
+				</div>
+			</div>
+			{% for p in posts %}
+				{% cycle "<div class = 'row'> <div class = 'col-md-6'>" "<div class = 'col-md-6'>"%}
+				<div class = 'panel {% cycle "panel-primary" "panel-info" "panel-warning" "panel-success" %}'>
+				<div class = 'panel-heading'>
+					<table width = '100%'>
+						<tr>
+							<td>
+								[{{p.nickname}}]觉得{{p.mood}}
+							</td>
+							<td align = right>
+								<i><small>{{p.pub_time}}</small></i>
+
+							</td>
+						</tr>
+					</table>
+				</div>
+		<div class = 'panel-body'>{{p.message|linebreaks}}</div>
+
+		<span class = "glyphicon glyphicon-trash"  onclick = 'go_delete({{p.id}})'></span>
+				</div>
+
+		</div>
+
+				{% cycle "" "</div>"%}
+			{% endfor %}
+	</div>
+{% endblock %}
+

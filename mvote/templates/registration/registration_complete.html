@@ -1,0 +1,20 @@
+<!--registration_complete.html-->
+{% extends "base.html" %}
+{% block title %} 吐槽大会 {% endblock %}
+{% block content %}
+    <div class = 'container'>
+        {% for message in messages %}
+            <div class = 'alert alert-warning'>{{message}}</div>
+        {% endfor %}
+        <div class = 'row'>
+            <div class = 'col-md-12'>
+                <div class = 'panel panel-default'>
+                    <div class = 'panel-heading' align = center>
+                        <h3>感谢您的注册</h3>
+                        <p>请到您注册的电子邮箱中去启用账号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
